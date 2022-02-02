@@ -4,16 +4,18 @@ import AllMeetupsPage from './pages/AllMeetupsPage'
 import NewMeetup from './pages/NewMeetup'
 import Favorites from './pages/Favorites'
 import MainNavigation from './components/layout/MainNavigation'
+import Layout from './components/layout/Layout'
 
 const App = () => {
   return (
     <div>
-      <MainNavigation />
-      <Routes>
-        <Route path='/' element={<AllMeetupsPage />} />
-        <Route path='/new-meetup' element={<NewMeetup />} />
-        <Route path='/favorites' element={<Favorites />} />
-      </Routes>
+      <Layout>
+        <Routes>
+          <Route path='/' element={<AllMeetupsPage />} />
+          <Route path='/new-meetup' element={<NewMeetup />} />
+          <Route path='/favorites' element={<Favorites />} />
+        </Routes>
+      </Layout>
     </div>
   )
 }

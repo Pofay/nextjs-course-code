@@ -1,9 +1,9 @@
 import Card from '../ui/Card'
 import classes from './MeetupItem.module.css'
 
-const MeetupItem = ({ key, title, image, address, description, onClick }) => {
+const MeetupItem = ({ id, title, image, address, description, onClick }) => {
   return (
-    <li key={key} className={classes.item}>
+    <li key={id} className={classes.item}>
       <Card>
         <div className={classes.image}>
           <img src={image} alt='' />
