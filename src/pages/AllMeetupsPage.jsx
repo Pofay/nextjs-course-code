@@ -1,5 +1,11 @@
+import React from 'react'
+
 const AllMeetupsPage = () => {
-  return <div>All Meetups </div>
+  return (
+    <div>
+      <h1>All Meetups</h1>
+    </div>
+  )
 }
 
 export default AllMeetupsPage
