@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 import Card from '../ui/Card';
 import classes from './NewMeetupForm.module.css';
 
@@ -7,6 +9,7 @@ const NewMeetupForm = ({ postNewMeetup }) => {
   const [imageUrl, setImageUrl] = useState('');
   const [address, setAddress] = useState('');
   const [description, setDescription] = useState('');
+  const navigate = useNavigate();
 
   const handleChange = (event, setterFn) => {
     event.preventDefault();
@@ -15,24 +18,26 @@ const NewMeetupForm = ({ postNewMeetup }) => {
   };
 
   const resetFormData = () => {
-    setTitle('')
-    setImageUrl('')
-    setAddress('')
-    setDescription('')
-  }
+    setTitle('');
+    setImageUrl('');
+    setAddress('');
+    setDescription('');
+  };
 
   const submitHandler = (event) => {
     event.preventDefault();
 
     const payload = {
+      id: uuidv4(),
       title,
       imageUrl,
       address,
       description,
     };
 
-    postNewMeetup(payload);
-    resetFormData();
+    postNewMeetup(payload)
+      .then((res) => resetFormData())
+      .then(() => navigate('/', { replace: true }));
   };
 
   return (

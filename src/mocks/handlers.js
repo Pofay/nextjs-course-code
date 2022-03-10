@@ -22,7 +22,15 @@ const dummyMeetups = [
 ];
 
 export const handlers = [
-  rest.post('/meetups', (req, res, ctx) => {}),
+  rest.post('/meetups', (req, res, ctx) => {
+    const { id, title, imageUrl, address, description } = req.body;
+
+    const newMeetup = { id, title, imageUrl, address, description };
+
+    dummyMeetups.concat(newMeetup);
+
+    return res(ctx.status(201), ctx.json({ data: newMeetup }));
+  }),
   rest.get('/meetups', (req, res, ctx) => {
     return res(ctx.json({ data: dummyMeetups }));
   }),
