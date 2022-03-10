@@ -9,9 +9,17 @@ const NewMeetupForm = ({ postNewMeetup }) => {
   const [description, setDescription] = useState('');
 
   const handleChange = (event, setterFn) => {
+    event.preventDefault();
     const value = event.target.value;
     setterFn(value);
   };
+
+  const resetFormData = () => {
+    setTitle('')
+    setImageUrl('')
+    setAddress('')
+    setDescription('')
+  }
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -24,6 +32,7 @@ const NewMeetupForm = ({ postNewMeetup }) => {
     };
 
     postNewMeetup(payload);
+    resetFormData();
   };
 
   return (
