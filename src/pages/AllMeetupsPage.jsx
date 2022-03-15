@@ -1,13 +1,12 @@
 import { React, useEffect, useState } from 'react';
+import MeetupAPI from '../api/meetup-api';
 import MeetupList from '../components/meetups/MeetupList';
 
 const AllMeetupsPage = () => {
   const [meetUps, setMeetUps] = useState([]);
 
   useEffect(() => {
-    fetch('/meetups')
-      .then((res) => res.json())
-      .then((res) => setMeetUps(res.data));
+    MeetupAPI.getAllMeetups().then(setMeetUps)
   }, []);
 
   return (
