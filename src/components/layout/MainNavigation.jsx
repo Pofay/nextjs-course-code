@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import classes from './MainNavigation.module.css'
-import FavoritesContext from '../../store/favorites-context'
+import MeetupsContext from '../../store/meetups-context'
 
 const MainNavigation = () => {
-  const favoritesCtx = useContext(FavoritesContext)
+  const favoritesCtx = useContext(MeetupsContext)
 
   return (
     <header className={classes.header}>

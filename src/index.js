@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 
 import './index.css'
 import App from './App'
-import { FavoritesContextProvider } from './store/favorites-context'
+import { MeetupsContextProvider } from './store/meetups-context'
 
 if (process.env.NODE_ENV === 'development') {
   const { worker } = require('./mocks/browser')
@@ -12,10 +12,10 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 ReactDOM.render(
-  <FavoritesContextProvider>
+  <MeetupsContextProvider>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </FavoritesContextProvider>,
+  </MeetupsContextProvider>,
   document.getElementById('root')
 )

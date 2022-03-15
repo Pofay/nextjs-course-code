@@ -1,9 +1,9 @@
 import { React, useContext } from 'react'
 import MeetupList from '../components/meetups/MeetupList'
-import FavoritesContext from '../store/favorites-context'
+import MeetupsContext from '../store/meetups-context'
 
 const Favorites = () => {
-  const favoritesCtx = useContext(FavoritesContext)
+  const favoritesCtx = useContext(MeetupsContext)
 
   let content
 

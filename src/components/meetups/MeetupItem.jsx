@@ -1,10 +1,10 @@
 import { useContext } from 'react'
-import FavoritesContext from '../../store/favorites-context'
+import MeetupsContext from '../../store/meetups-context'
 import Card from '../ui/Card'
 import classes from './MeetupItem.module.css'
 
 const MeetupItem = ({ id, title, image, address, description }) => {
-  const favoritesCtx = useContext(FavoritesContext)
+  const favoritesCtx = useContext(MeetupsContext)
 
   const itemIsFavorite = favoritesCtx.itemIsFavorite(id)
 
