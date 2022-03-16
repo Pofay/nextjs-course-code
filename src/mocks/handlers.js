@@ -21,17 +21,24 @@ const dummyMeetups = [
   },
 ];
 
+window.localStorage.setItem('meetups', JSON.stringify(dummyMeetups))
+
 export const handlers = [
   rest.post('/meetups', (req, res, ctx) => {
     const { id, title, imageUrl, address, description } = req.body;
 
     const newMeetup = { id, title, imageUrl, address, description };
 
-    dummyMeetups.concat(newMeetup);
+    const prevMeetups = JSON.parse(window.localStorage.getItem('meetups'))
+    const updatedMeetups = prevMeetups.concat(newMeetup);
+    window.localStorage.setItem('meetups', JSON.stringify(updatedMeetups))
 
     return res(ctx.status(201), ctx.json({ data: newMeetup }));
   }),
   rest.get('/meetups', (req, res, ctx) => {
-    return res(ctx.json({ data: dummyMeetups }));
+    const meetups = JSON.parse(window.localStorage.getItem('meetups'))
+
+    return res(ctx.json({ data: meetups}));
   }),
 ];
+
